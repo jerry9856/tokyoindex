@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>東京車站交通比較：錦糸町 vs 押上</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #eef3f7; /* Lighter background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #ffffff;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin: 40px 0 25px 0;
+            font-size: 1.8em;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #4CAF50;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .container {
+            max-width: 1100px; /* Slightly wider container */
+            margin: 0 auto 40px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-section {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .station-card {
+            flex: 1 1 45%; /* Flex-grow, flex-shrink, basis */
+            min-width: 400px; /* Minimum width for each card */
+            background-color: #fcfcfc;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+            padding: 25px;
+            border-top: 5px solid; /* For station specific color */
+        }
+
+        .station-card.kinshicho {
+            border-color: #3f51b5; /* Indigo for Kinshicho */
+        }
+        .station-card.oshiage {
+            border-color: #e91e63; /* Pink for Oshiage */
+        }
+
+        .station-card h3 {
+            text-align: center;
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            color: #555;
+            font-weight: bold;
+            font-size: 0.95em;
+            text-transform: capitalize; /* Capitalize first letter */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+
+        tr:hover {
+            background-color: #eef;
+        }
+
+        /* Specific styling for the overall comparison table (價差) */
+        .price-difference-table th {
+            background-color: #4CAF50;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .highlight-positive {
+            color: #d32f2f; /* Red for higher cost for you */
+            font-weight: bold;
+        }
+
+        .highlight-negative {
+            color: #388e3c; /* Green for lower cost for you */
+            font-weight: bold;
+        }
+
+        .highlight-zero {
+            color: #555;
+            font-weight: bold;
+        }
+
+        .note {
+            background-color: #eaf6fd;
+            border-left: 5px solid #2196F3;
+            padding: 15px;
+            margin-top: 30px;
+            border-radius: 5px;
+            color: #333;
+        }
+
+        .note strong {
+            color: #1976D2;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .comparison-section {
+                flex-direction: column; /* Stack cards vertically */
+                align-items: center;
+            }
+            .station-card {
+                min-width: unset; /* Remove min-width to allow full flexibility */
+                width: 100%; /* Take full width on smaller screens */
+            }
+            .container {
+                padding: 20px;
+                margin: 20px auto;
+            }
+            h1 {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>東京車站交通大比拼：錦糸町 vs 押上</h1>
+
+    <div class="container">
+        <h2>交通方式與票價總覽</h2>
+        <div class="comparison-section">
+            <div class="station-card kinshicho">
+                <h3>錦糸町出發</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>目的地</th>
+                            <th>交通方式</th>
+                            <th>轉乘</th>
+                            <th>時間</th>
+                            <th>票價</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>新宿</td><td>JR</td><td>0回</td><td>26分</td><td>230 円</td></tr>
+                        <tr><td>池袋</td><td>JR</td><td>1回</td><td>31分</td><td>230 円</td></tr>
+                        <tr><td>澀谷</td><td>地下鐵(TM)</td><td>0回</td><td>29分</td><td>252 円</td></tr>
+                        <tr><td></td><td>JR</td><td>1回</td><td>31分</td><td>230 円</td></tr>
+                        <tr><td>表參道</td><td>地下鐵</td><td>0回</td><td>26分</td><td>252 円</td></tr>
+                        <tr><td>上野</td><td>JR</td><td>1回</td><td>14分</td><td>167 円</td></tr>
+                        <tr><td>迪士尼海洋</td><td>JR/私鐵/步行</td><td>2回</td><td>1小時2分</td><td>618 円</td></tr>
+                        <tr><td></td><td>接駁車 (晴空塔發車)</td><td>-</td><td>-</td><td>1000 円</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="station-card oshiage">
+                <h3>押上出發</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>目的地</th>
+                            <th>交通方式</th>
+                            <th>轉乘</th>
+                            <th>時間</th>
+                            <th>票價</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>新宿</td><td>地下鐵</td><td>1回</td><td>25分</td><td>272 円</td></tr>
+                        <tr><td>池袋</td><td>地下鐵</td><td>1回</td><td>34分</td><td>252 円</td></tr>
+                        <tr><td>澀谷</td><td>地下鐵</td><td>0回</td><td>31分</td><td>252 円</td></tr>
+                        <tr><td>表參道</td><td>地下鐵</td><td>0回</td><td>28分</td><td>252 円</td></tr>
+                        <tr><td>上野</td><td>地下鐵</td><td>1回</td><td>14分</td><td>286 円</td></tr>
+                        <tr><td>迪士尼海洋</td><td>JR/私鐵</td><td>3回</td><td>59分</td><td>847 円</td></tr>
+                        <tr><td></td><td>接駁車 (晴空塔站搭乘)</td><td>-</td><td>-</td><td>1000 円</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        ---
+
+        <h2>票價價差分析：哪個車站更划算？</h2>
+        <table class="price-difference-table">
+            <thead>
+                <tr>
+                    <th>目的地</th>
+                    <th>錦糸町票價</th>
+                    <th>押上票價</th>
+                    <th>價差 (錦糸町 - 押上)</th>
+                    <th>備註</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>新宿</td>
+                    <td>230 円 (JR)</td>
+                    <td>272 円 (地下鐵)</td>
+                    <td class="highlight-negative">-42 円</td>
+                    <td>從錦糸町出發較便宜。</td>
+                </tr>
+                <tr>
+                    <td>池袋</td>
+                    <td>230 円 (JR)</td>
+                    <td>252 円 (地下鐵)</td>
+                    <td class="highlight-negative">-22 円</td>
+                    <td>從錦糸町出發較便宜。</td>
+                </tr>
+                <tr>
+                    <td>澀谷</td>
+                    <td>252 円 (地下鐵) / 230 円 (JR)</td>
+                    <td>252 円 (地下鐵)</td>
+                    <td class="highlight-zero">0 円 / <span class="highlight-negative">-22 円</span></td>
+                    <td>搭地下鐵票價相同；搭JR從錦糸町較便宜。</td>
+                </tr>
+                <tr>
+                    <td>表參道</td>
+                    <td>252 円 (地下鐵)</td>
+                    <td>252 円 (地下鐵)</td>
+                    <td class="highlight-zero">0 円</td>
+                    <td>票價相同。</td>
+                </tr>
+                <tr>
+                    <td>上野</td>
+                    <td>167 円 (JR)</td>
+                    <td>286 円 (地下鐵)</td>
+                    <td class="highlight-negative">-119 円</td>
+                    <td>從錦糸町出發明顯便宜許多。</td>
+                </tr>
+                <tr>
+                    <td>迪士尼海洋</td>
+                    <td>618 円 (JR/私鐵)</td>
+                    <td>847 円 (JR/私鐵)</td>
+                    <td class="highlight-negative">-229 円</td>
+                    <td>搭乘鐵路的話，從錦糸町出發較便宜。</td>
+                </tr>
+                <tr>
+                    <td>迪士尼海洋 (接駁車)</td>
+                    <td>1000 円</td>
+                    <td>1000 円</td>
+                    <td class="highlight-zero">0 円</td>
+                    <td>接駁車票價相同。</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note">
+            <p><strong>價差說明：</strong></p>
+            <ul>
+                <li>**負數**表示從**錦糸町**出發的交通費**較便宜**。</li>
+                <li>**正數**表示從**押上**出發的交通費**較便宜**。</li>
+                <li>**0 円**表示兩者交通費**相同**。</li>
+            </ul>
+            <p>從這份比較可以看出，除了搭乘接駁車到迪士尼海洋以及前往澀谷、表參道的部分路線票價相同外，**從錦糸町出發到其他地點（新宿、池袋、上野、以及鐵路方式到迪士尼海洋）的交通費通常會比從押上出發來得便宜。**</p>
+        </div>
+    </div>
+</body>
+</html>
